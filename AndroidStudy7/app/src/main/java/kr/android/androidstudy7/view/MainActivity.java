@@ -16,6 +16,7 @@ import butterknife.OnClick;
 import kr.android.androidstudy7.R;
 import kr.android.androidstudy7.adapter.UserListAdapter;
 import kr.android.androidstudy7.model.UserModel;
+import kr.android.androidstudy7.network.LoginModel;
 import kr.android.androidstudy7.network.UserService;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -72,27 +73,23 @@ public class MainActivity extends AppCompatActivity {
 
         retrofit = new Retrofit.Builder()                               // 레트로핏 빌더로 시작
                 .client(okHttpClient)                                   // 클라이언트에 okHTTP 붙이기
-                .baseUrl("http://150.95.135.222:1337")                  // baseURL 설정
+                .baseUrl("http://192.168.0.5:7010")                  // baseURL 설정
                 .addConverterFactory(GsonConverterFactory.create())     // 컨버터 설정 ( json 직렬화 / 역직렬화 GSON 라이브러리 )
                 .build();                                               // 최종완성
 
         service = retrofit.create(UserService.class);
 
 
-        Call<List<UserModel>> userListCall = service.getUserList();
-        userListCall.enqueue(new Callback<List<UserModel>>() {
+        Call<LoginModel> userListCall = service.login(new LoginModel("admin", ""));
+        userListCall.enqueue(new Callback<LoginModel>() {
             @Override
-            public void onResponse(Call<List<UserModel>> call, Response<List<UserModel>> response) {
-                int statusCode = response.code();
-                List<UserModel> list = response.body();
-                Log.e("list", "status" + statusCode);
-                Log.e("list", statusCode + " / " + list.toString());
-                listAdapter.setList(list);
+            public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
+
             }
 
             @Override
-            public void onFailure(Call<List<UserModel>> call, Throwable t) {
-                Log.e("error", t.toString());
+            public void onFailure(Call<LoginModel> call, Throwable t) {
+
             }
         });
     }

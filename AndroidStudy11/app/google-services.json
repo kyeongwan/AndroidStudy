@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "876428756732",
+    "firebase_url": "https://gdg-firebase-hackation.firebaseio.com",
+    "project_id": "gdg-firebase-hackation",
+    "storage_bucket": "gdg-firebase-hackation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876428756732:android:a995c41f1d5afacb",
+        "android_client_info": {
+          "package_name": "kr.android.androidstudy11"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "876428756732-lueao64ai2k62m46tv31qkpnffgrdpi8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfQ-4AR2Gso1M186n5jv_0zPMj10wWriQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
